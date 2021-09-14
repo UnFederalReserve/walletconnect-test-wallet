@@ -1,12 +1,12 @@
 import walletconnectLogo from "./assets/walletconnect-logo.png";
-import { SUPPORTED_CHAINS, MAINNET_CHAIN_ID, ETH_STANDARD_PATH } from "../constants";
+import { SUPPORTED_CHAINS, RINKEBY_CHAIN_ID, ETH_STANDARD_PATH } from "../constants";
 import { IAppConfig } from "../helpers/types";
 import { getRpcEngine } from "../engines";
 
 const appConfig: IAppConfig = {
   name: "WalletConnect",
   logo: walletconnectLogo,
-  chainId: MAINNET_CHAIN_ID,
+  chainId: RINKEBY_CHAIN_ID,
   derivationPath: ETH_STANDARD_PATH,
   numberOfAccounts: 3,
   colors: {

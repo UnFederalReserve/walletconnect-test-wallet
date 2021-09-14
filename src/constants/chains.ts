@@ -241,4 +241,20 @@ export const SUPPORTED_CHAINS: IChainData[] = [
       balance: "",
     },
   },
+  {
+    name: "Localhost",
+    short_name: "eth",
+    chain: "ETH",
+    network: "rinkeby",
+    chain_id: 1337,
+    network_id: 1337,
+    rpc_url: "http://127.0.0.1:8545",
+    native_currency: {
+      symbol: "ETH",
+      name: "Ether",
+      decimals: "18",
+      contractAddress: "",
+      balance: "",
+    },
+  },
 ];

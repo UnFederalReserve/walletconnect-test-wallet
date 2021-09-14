@@ -2,7 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 import Dropdown from "../components/Dropdown";
 import { IChainData } from "../helpers/types";
-import { ellipseAddress, getViewportDimensions } from "../helpers/utilities";
 import { responsive } from "../styles";
 import Blockie from "./Blockie";
 
@@ -36,14 +35,9 @@ interface IAccountDetailsProps {
 
 const AccountDetails = (props: IAccountDetailsProps) => {
   const { chains, chainId, address, activeIndex, accounts, updateAddress, updateChain } = props;
-  const windowWidth = getViewportDimensions().x;
-  const maxWidth = 468;
-  const maxChar = 12;
-  const ellipseLength =
-    windowWidth > maxWidth ? maxChar : Math.floor(windowWidth * (maxChar / maxWidth));
   const accountsMap = accounts.map((addr: string, index: number) => ({
     index,
-    display_address: ellipseAddress(addr, ellipseLength),
+    display_address: addr,
   }));
   return (
     <React.Fragment>

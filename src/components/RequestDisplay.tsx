@@ -60,8 +60,8 @@ class RequestDisplay extends React.Component<any, any> {
           </React.Fragment>
         ))}
         <SActions>
-          <Button onClick={approveRequest}>{`Approve`}</Button>
-          <Button onClick={rejectRequest}>{`Reject`}</Button>
+          <Button onClick={approveRequest} data-testid="approve">{`Approve`}</Button>
+          <Button onClick={rejectRequest} data-testid="reject">{`Reject`}</Button>
         </SActions>
       </Column>
     );

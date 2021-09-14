@@ -46,15 +46,6 @@ const SContent = styled.div`
   justify-content: center;
 `;
 
-const SLogo = styled.div`
-  padding: 10px 0;
-  display: flex;
-  max-height: 100px;
-  & img {
-    width: 100%;
-  }
-`;
-
 const SActions = styled.div`
   margin: 0;
   margin-top: 20px;
@@ -75,11 +66,6 @@ const SActionsColumn = styled(SActions as any)`
   & > p {
     font-weight: 600;
   }
-`;
-
-const SButton = styled(Button)`
-  width: 50%;
-  height: 40px;
 `;
 
 const SInput = styled(Input)`
@@ -479,17 +465,17 @@ class App extends React.Component<{}> {
             killSession={this.killSession}
           />
           <SContent>
-            <Card maxWidth={400}>
-              <SLogo>
-                <img src={getAppConfig().logo} alt={getAppConfig().name} />
-              </SLogo>
+            <Card maxWidth={600}>
               {!connected ? (
                 peerMeta && peerMeta.name ? (
                   <Column>
                     <PeerMeta peerMeta={peerMeta} />
                     <SActions>
-                      <Button onClick={this.approveSession}>{`Approve`}</Button>
-                      <Button onClick={this.rejectSession}>{`Reject`}</Button>
+                      <Button
+                        onClick={this.approveSession}
+                        data-testid="approve"
+                      >{`Approve`}</Button>
+                      <Button onClick={this.rejectSession} data-testid="reject">{`Reject`}</Button>
                     </SActions>
                   </Column>
                 ) : (
@@ -504,13 +490,11 @@ class App extends React.Component<{}> {
                       updateChain={this.updateChain}
                     />
                     <SActionsColumn>
-                      <SButton onClick={this.toggleScanner}>{`Scan`}</SButton>
-                      {getAppConfig().styleOpts.showPasteUri && (
-                        <>
-                          <p>{"OR"}</p>
-                          <SInput onChange={this.onURIPaste} placeholder={"Paste wc: uri"} />
-                        </>
-                      )}
+                      <SInput
+                        onChange={this.onURIPaste}
+                        placeholder={"Paste wc: uri"}
+                        data-testid="wc-uri"
+                      />
                     </SActionsColumn>
                   </Column>
                 )
