@@ -521,7 +521,11 @@ class App extends React.Component<{}> {
                   <h6>{"Pending Call Requests"}</h6>
                   {requests.length ? (
                     requests.map(request => (
-                      <SRequestButton key={request.id} onClick={() => this.openRequest(request)}>
+                      <SRequestButton
+                        key={request.id}
+                        onClick={() => this.openRequest(request)}
+                        data-testid="pending"
+                      >
                         <div>{request.method}</div>
                       </SRequestButton>
                     ))
